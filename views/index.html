@@ -4,11 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Main CSS -->
     <link rel="stylesheet" href="styles/main.css">
-    <script src="scripts/app.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" defer></script>
+    <!-- Main JS -->
+    <script src="scripts/app.js" defer></script>
     <title>Index</title>
 </head>
 <body>
-    <h1>Express Cities</h1>
+    <main>
+        <h1>Express Cities</h1>
+        <section>
+            <!-- old School HTML form handling -->
+            <!-- <form action="/api/v1/cities" method="POST">  -->
+            <form id="newCityForm">
+                <input type="text" id="name" name="name" placeholder="Name" />
+                <input type="text" id="description" name="description" placeholder="Description" />
+                <button type="submit">Add City</button>
+            </form>
+        </section>
+
+        <section: id="cities"></section:>
+    </main>
 </body>
 </html>
