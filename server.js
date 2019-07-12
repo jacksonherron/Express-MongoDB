@@ -1,7 +1,6 @@
 // -------------- IMPORT CORE NODE MODULES -------------- //
 const express = require('express');
 const bodyParser = require('body-parser');
-const uuid = require('uuidv4');
 const db = require('./models');
 
 // -------------- GLOBAL VARIABLES -------------- //
@@ -14,7 +13,7 @@ function getTime() {
 // -------------- MIDDLEWARE -------------- //
 // Body Parser - pulls data off of request object and puts it in "body" property
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 // Serve static assets
 app.use(express.static(`${__dirname}/public`));
 
@@ -92,7 +91,7 @@ app.post('/api/v1/cities', (req, res) => {
 });
 
 
-// -------------- CREATE -------------- //
+// -------------- Update -------------- //
 app.put('/api/v1/cities/:city_id', (req, res) => {
     db.City.findByIdAndUpdate(req.params.city_id, req.body, { new: true }, (err, updatedCity) => {
         console.log(req.body);
