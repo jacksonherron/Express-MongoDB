@@ -1,3 +1,62 @@
 body {
     background-color: skyblue;
+    display: flex;
+    justify-content: center;
+}
+
+
+h1 {
+    background-color: tomato;
+    border-radius: 100px;
+    box-shadow: 5px 10px darkblue;
+    padding: 20px;
+    display: inline-block;
+    margin: 20px 40px;
+}
+
+.city {
+    background-color: tomato;
+    margin: 15px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 100px;
+    width: 250px;
+    box-shadow: 5px 10px darkblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.city h4, p {
+    margin: 0;
+}
+
+.city button {
+    float: right;
+}
+
+.deleteBtn {
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+#submitBtn {
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:focus {
+    outline: none
+}
+
+button {
+    cursor: pointer;
+}
+
+.input{
+    border: 1px solid darkblue;
 }

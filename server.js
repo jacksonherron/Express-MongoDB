@@ -25,7 +25,6 @@ app.get('/', (req, res) => {
 });
 
 
-
 // -------------- API ENDPOINTS -------------- //
 
 // -------------- READ -------------- //
@@ -83,7 +82,7 @@ app.post('/api/v1/cities', (req, res) => {
             message: 'Something went wrong, please try again'
         });
         res.status(200).json({
-            status: 201,
+            status: 200,
             data: createdCity,
             requestedAt: getTime()
         });
@@ -101,7 +100,7 @@ app.put('/api/v1/cities/:city_id', (req, res) => {
             message: 'Something went wrong, please try again'
         });
         res.status(200).json({
-            status: 201,
+            status: 200,
             data: updatedCity,
             requestedAt: getTime()
         });
@@ -118,7 +117,7 @@ app.delete('/api/v1/cities/delete/:city_id', (req,res) => {
             message: 'Something went wrong, please try again'
         });
         res.status(200).json({
-            status: 201,
+            status: 200,
             data: deletedCity,
             requestedAt: getTime()
         });
