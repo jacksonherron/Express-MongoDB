@@ -76,6 +76,7 @@ app.get('/api/v1/cities/id/:city_id', (req, res) => {
 // -------------- CREATE -------------- //
 app.post('/api/v1/cities', (req, res) => {
     const newCity = req.body;
+    console.log(newCity);
     db.City.create(newCity, (err, createdCity) => {
         if (err) return res.status(400).json({
             status: 400,
@@ -90,11 +91,12 @@ app.post('/api/v1/cities', (req, res) => {
 });
 
 
-// -------------- Update -------------- //
+// -------------- UPDATE -------------- //
 app.put('/api/v1/cities/:city_id', (req, res) => {
+    console.log(req.params.city_id);
     db.City.findByIdAndUpdate(req.params.city_id, req.body, { new: true }, (err, updatedCity) => {
         console.log(req.body);
-        console.log()
+        console.log(req.params.city_id);
         if (err) return res.status(400).json({
             status: 400,
             message: 'Something went wrong, please try again'
@@ -102,7 +104,7 @@ app.put('/api/v1/cities/:city_id', (req, res) => {
         res.status(200).json({
             status: 200,
             data: updatedCity,
-            requestedAt: getTime()
+            updatedAt: getTime()
         });
     });
 });

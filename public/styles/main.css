@@ -30,18 +30,6 @@ h1 {
     margin: 0;
 }
 
-.city button {
-    float: right;
-}
-
-.deleteBtn {
-    background-color: darkblue;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 12px;
-}
-
 #submitBtn {
     background-color: darkblue;
     color: white;
@@ -59,4 +47,28 @@ button {
 
 .input{
     border: 1px solid darkblue;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+.editBtn {
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    margin: 5px;
+}
+
+.deleteBtn {
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    display: block;
+    margin: 5px;
 }
