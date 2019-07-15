@@ -72,3 +72,28 @@ button {
     display: block;
     margin: 5px;
 }
+
+.edit {
+    width: 400px;
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+}
+
+.editCityForm .editBtn {
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.cancelEditBtn {
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    display: inline-block;
+}

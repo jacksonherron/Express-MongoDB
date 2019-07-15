@@ -24,18 +24,7 @@ function addNewCity(event) {
 
 function newCitySuccess(response) {
     console.log('Success');
-    $cities.append(`
-        <div id="${response.data._id}" class="city">
-            <div>
-                <h4>${response.data.name}</h4>
-                <p>${response.data.description}</p>
-            </div>
-            <div class="buttons">
-                <button class="deleteBtn">&times;</button>
-                <button class="editBtn">edit</button>
-            </div>
-        </div>`
-    );
+    $cities.append(cityTemplate(response.data));
 };
 
 function newCityError(err1, err2, err3) {
@@ -65,17 +54,23 @@ function allCitiesError(err1, err2, err3) {
 
 // ------------------ UPDATE ------------------ //
 function editCity(event) {
-    $(this).prop('disabled', true);
+    // First step: Deactivate the edit button so it can't be clicked more than once
+    $(event.target).prop('disabled', true);
+    const editButton = event.target;
     const $cityName = event.target.parentNode.parentNode.childNodes[1].childNodes[1];
     const $cityDescription = event.target.parentNode.parentNode.childNodes[1].childNodes[3];
-    console.log($cityName, $cityDescription);
-    $(`<form id="editCityForm">
-            <input type="text" id="name" name="name" placeholder="${$cityName.innerHTML}" class="input"/>
-            <input type="text" id="description" name="description" placeholder=${$cityDescription.innerHTML} class="input"/>
-            <button type="submit" id="editBtn">Edit City</button>
-        </form>`).insertAfter(event.target.parentNode.parentNode);
-    const $editCityForm = $(`#editCityForm`);
-    console.log($editCityForm);
+    $(editTemplate($cityName, $cityDescription)).insertAfter(event.target.parentNode.parentNode);
+    const $editCityForm = $(`.editCityForm`);
+    const $cancelEditButton = $(`.cancelEditBtn`);
+    const $editDiv = $('.edit');
+
+    $cancelEditButton.on('click', (editButton) => {
+        $(event.target.parentNode.childNodes[3]).prop('disabled', false);
+        $(editButton).prop('disabled', false);
+        console.log('clicked');
+        $editDiv.remove();
+    });
+
     $editCityForm.on('submit', () => {
         event.preventDefault();
         $.ajax({
@@ -106,6 +101,18 @@ function deleteCity(event) {
         success: deleteCitySuccess,
         error: deleteCityError
     });
+};
+
+function editTemplate($cityName, $cityDescription) {
+    return `
+    <div class="edit">
+        <form class="editCityForm">
+            <input type="text" id="name" name="name" placeholder="${$cityName.innerHTML}" class="input"/>
+            <input type="text" id="description" name="description" placeholder=${$cityDescription.innerHTML} class="input"/>
+            <button type="submit" class="editBtn">Edit City</button>
+        </form>
+        <button type="submit" class="cancelEditBtn">&times;</button>
+    </div>`;
 };
 
 function cityTemplate(city) {
