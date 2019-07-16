@@ -80,7 +80,7 @@ button {
     align-items: baseline;
 }
 
-.editCityForm .submitEditBtn {
+.editForm .submitEditBtn {
     background-color: darkblue;
     color: white;
     border: none;
